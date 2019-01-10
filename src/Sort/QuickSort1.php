@@ -40,18 +40,19 @@ function findPv(&$arr, $start, $end)
  * @param $start
  * @param $end
  */
-function PvSort(&$arr, $start, $end)
+function pvSort(&$arr, $start, $end)
 {
     if ($start >= $end) {
         return ;
     }
 
     $p = findPv($arr, $start, $end);
-    PvSort($arr, 0, $p - 1);
-    PvSort($arr, $p + 1, $end);
+    pvSort($arr, 0, $p - 1);
+    pvSort($arr, $p + 1, $end);
 }
 
-$arr = [10,6,8,23,4,1,17,56,32,50,11,9];
-PvSort($arr, 0, count($arr) - 1);
+$arr = [10, 6, 8, 23, 4, 1, 17, 56, 32, 50, 11, 9];
+print_r($arr);
+pvSort($arr, 0, count($arr) - 1);
 print_r($arr);
 

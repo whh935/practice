@@ -56,5 +56,6 @@ function PvSort(&$arr)
 }
 
 $arr = [10,6,8,23,4,1,17,56,32,50,11,9];
+print_r($arr);
 PvSort($arr);
 print_r($arr);
