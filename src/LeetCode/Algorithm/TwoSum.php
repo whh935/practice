@@ -26,5 +26,5 @@ function twoSum($numbers, $target)
     return [];
 }
 
-$arr = [2,7,11, 15];
+$arr = [2, 7, 11, 15];
 var_dump(twoSum($arr, 9));exit;
