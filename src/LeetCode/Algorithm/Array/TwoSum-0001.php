@@ -7,10 +7,10 @@
  *      可以假设题目有唯一解。
  */
 
-function twoSum($numbers, $target)
+function twoSum($nums, $target)
 {
     $idx = [];
-    foreach ($numbers as $key => $value) {
+    foreach ($nums as $key => $value) {
         if (isset($idx[$target - $value])) {
             return [$idx[$target - $value], $key];
         }

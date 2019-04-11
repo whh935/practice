@@ -15,17 +15,20 @@ function threeSum($nums)
 {
     $result = [];
     $length = count($nums);
+    if ($length < 3) {
+        return $result;
+    }
     sort($nums);
- 
+
     for ($i = 0; $i < $length - 2 && $nums[$i] <= 0; $i++) {
         if ($i > 0 && $nums[$i] == $nums[$i - 1]) { // 过滤相同值
             continue;
         }
 
-        $sum = 0 - $nums[$i];
         $curr[0] = $nums[$i];
         for ($left = $i + 1, $right = $length - 1; $left < $right;) {
-            if ($nums[$left] + $nums[$right] == $sum) {
+            $sum = $nums[$i] + $nums[$left] + $nums[$right];
+            if ($sum == 0) {
                 $curr[1] = $nums[$left++];
                 $curr[2] = $nums[$right--];
                 if (!in_array($curr, $result)) {
@@ -37,7 +40,7 @@ function threeSum($nums)
                 while ($left < $right && $nums[$right] == $nums[$right + 1]) {
                     $right--;
                 }
-            } elseif ($nums[$left] + $nums[$right] > $sum) {
+            } elseif ($sum > 0) {
                 $right--;
                 while ($nums[$right] == $nums[$right + 1] && $right > $left) {
                     $right--;
@@ -50,7 +53,7 @@ function threeSum($nums)
             }
         }
     }
-    
+
     return $result;
 }
 
