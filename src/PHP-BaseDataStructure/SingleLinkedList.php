@@ -1,5 +1,6 @@
 <?php
-class Node {
+class Node 
+{
     public $value = '';
     public $next  = null;
 
