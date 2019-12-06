@@ -68,21 +68,31 @@ function showNode($head)
     $p = $head;
     while (!is_null($p->next)) {
         $p = $p->next;
-        echo $p->value . PHP_EOL;
+        echo $p->value . '->';
     }
+    echo 'NULL' . PHP_EOL;
+}
+
+function oddEvenList($head)
+{
+
 }
 
 $head = new Node(null);
 
-addNode($head, 'a');
-addNode($head, 'b');
-addNode($head, 'c');
+addNode($head, '2');
+addNode($head, '1');
+addNode($head, '3');
+addNode($head, '5');
+addNode($head, '6');
+addNode($head, '4');
+addNode($head, '7');
 showNode($head);
 echo '---' . PHP_EOL;
 
-insertNodeAfter($head, 'd', 0);
-showNode($head);
-echo '---' . PHP_EOL;
-
-deleteNode($head, 2);
-showNode($head);
+//insertNodeAfter($head, 'd', 0);
+//showNode($head);
+//echo '---' . PHP_EOL;
+//
+//deleteNode($head, 2);
+//showNode($head);
