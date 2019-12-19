@@ -12,7 +12,7 @@
  * @param $number
  * @return bool
  */
-function find_number($arr, $number)
+function findNumber($arr, $number)
 {
     if (!is_array($arr)) {
         return false;
@@ -47,6 +47,6 @@ $test = [
     [6,8,11,15]
 ];
 
-var_dump(find_number($test, 7));
-var_dump(find_number($test, 23));
+var_dump(findNumber($test, 7));
+var_dump(findNumber($test, 23));
 exit;
