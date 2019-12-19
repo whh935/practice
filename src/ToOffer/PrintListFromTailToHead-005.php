@@ -33,8 +33,9 @@ function showNode($head)
     $p = $head;
     while (!is_null($p->next)) {
         $p = $p->next;
-        echo $p->value . PHP_EOL;
+        echo $p->value . ' ';
     }
+    echo PHP_EOL;
 }
 
 function printListFromTailToHeadByStack($head)
@@ -48,7 +49,7 @@ function printListFromTailToHeadByStack($head)
     
     while (count($nodes) > 0) {
         $node = array_pop($nodes);
-        echo $node->value . PHP_EOL;
+        echo $node->value . ' ';
     }
 }
 
@@ -59,7 +60,7 @@ function printListFromTailToHeadByRecursive($head)
             printListFromTailToHeadByRecursive($head->next);
         }
 
-        echo $head->value . PHP_EOL;
+        echo $head->value . ' ';
     }
 }
 
@@ -72,6 +73,8 @@ showNode($head);
 echo '---' . PHP_EOL;
 
 printListFromTailToHeadByStack($head);
+echo PHP_EOL;
 echo '---' . PHP_EOL;
 
 printListFromTailToHeadByRecursive($head);
+echo PHP_EOL;
