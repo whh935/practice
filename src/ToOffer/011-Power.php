@@ -21,12 +21,12 @@ function power($base, $exponent)
         return 0;
     }
 
-    $absExponent = $exponent;
+    $abs_exponent = $exponent;
     if ($exponent < 0) {
-        $absExponent = -$exponent;
+        $abs_exponent = -$exponent;
     }
 
-    $result = powerWithUnsignedExponent($base, $absExponent);
+    $result = powerWithUnsignedExponent($base, $abs_exponent);
     if ($exponent < 0) {
         $result = 1 / $result;
     }
