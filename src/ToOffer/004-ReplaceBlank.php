@@ -24,6 +24,10 @@ function replaceBlank($str)
         }
     }
 
+    if ($blanks <= 0) {
+        return $str;
+    }
+
     $new_length = ($original_length + $blanks * 2) - 1;
     for ($i = $original_length - 1; $i >= 0; $i--) {
         if ($str[$i] == ' ') {
