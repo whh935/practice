@@ -17,6 +17,10 @@ class Node
     }
 }
 
+/**
+ * @param $head
+ * @param $value
+ */
 function addNode($head, $value)
 {
     $p = $head;
@@ -28,6 +32,9 @@ function addNode($head, $value)
     $p->next = $new;
 }
 
+/**
+ * @param $head
+ */
 function showNode($head)
 {
     $p = $head;
@@ -38,6 +45,9 @@ function showNode($head)
     echo PHP_EOL;
 }
 
+/**
+ * @param $head
+ */
 function printListFromTailToHeadByStack($head)
 {
     $p = $head;
@@ -53,6 +63,9 @@ function printListFromTailToHeadByStack($head)
     }
 }
 
+/**
+ * @param $head
+ */
 function printListFromTailToHeadByRecursive($head)
 {
     if (!is_null($head)) {

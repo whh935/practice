@@ -5,6 +5,12 @@
  * Desc: 剑指offer面试题11
  *      求一个数的整数次方
  */
+
+/**
+ * @param $base
+ * @param $exponent
+ * @return float|int
+ */
 function power($base, $exponent)
 {
     if (!is_int($exponent)) {
@@ -28,6 +34,11 @@ function power($base, $exponent)
     return $result;
 }
 
+/**
+ * @param $base
+ * @param $exponent
+ * @return int
+ */
 function powerWithUnsignedExponent($base, $exponent)
 {
     if (0 == $exponent) {

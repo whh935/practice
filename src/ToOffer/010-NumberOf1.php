@@ -8,6 +8,8 @@
 
 /**
  * 把一个整数减去1，再与原整数做按位与运算，会把该整数最右边一个1变成0
+ * @param $n
+ * @return int
  */
 function numberOf1($n)
 {

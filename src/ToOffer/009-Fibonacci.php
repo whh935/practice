@@ -5,6 +5,11 @@
  * Desc: 剑指offer面试题9-斐波那契数列
  */
 
+/**
+ * 递归实现
+ * @param $n
+ * @return int
+ */
 function FibonacciByRecursive($n)
 {
     if ($n <= 0) {
@@ -17,6 +22,11 @@ function FibonacciByRecursive($n)
     return FibonacciByRecursive($n - 1) + FibonacciByRecursive($n - 2);
 }
 
+/**
+ * 递推实现
+ * @param $n
+ * @return int
+ */
 function FibonacciByNoRecursive($n)
 {
     if ($n <= 0) {
