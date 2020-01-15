@@ -2,10 +2,15 @@
 /**
  * User: whh935
  * Date: 2019/4/16 11:43
- * Desc: LeetCode第74题-https://leetcode.com/problems/search-a-2d-matrix/
+ * Desc: LeetCode第74题-https://leetcode-cn.com/problems/search-a-2d-matrix/
  *      在一个从左到右递增，从上到下递增的二维数组矩阵中查找一个数，存在返回true，否则false
  */
 
+/**
+ * @param $matrix
+ * @param $target
+ * @return bool
+ */
 function searchMatrix($matrix, $target) 
 {
 	$rows 	 = count($matrix);

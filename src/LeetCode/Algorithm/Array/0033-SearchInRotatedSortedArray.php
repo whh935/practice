@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2019/4/17 18:38
- * Desc: LeetCode第33题-https://leetcode.com/problems/search-in-rotated-sorted-array/
+ * Desc: LeetCode第33题-https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
  *      在旋转排序数组中查找一个数，存在返回下标，否则返回-1
  */
 

@@ -2,15 +2,19 @@
 /**
  * User: whh935
  * Date: 2019/4/11 19:59
- * Desc: LeetCode第15题-https://leetcode.com/problems/3sum/
+ * Desc: LeetCode第15题-https://leetcode-cn.com/problems/3sum/
  *      寻找三数之和为0，结果要避免重复
  */
 
 /**
-  思路：1.先将数组排序
+  思路： 1.先将数组排序
         2.先固定一个值，然后用双指针法遍历右侧的子数组，寻找sum=0的case
         3.每遇到一个值都判断和前面的值是否相等，相等就跳过（避免重复）
   */
+/**
+ * @param $nums
+ * @return array
+ */
 function threeSum($nums)
 {
     $result = [];

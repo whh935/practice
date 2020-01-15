@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2019/5/29 17:51
- * Desc: LeetCode第152题-https://leetcode.com/problems/maximum-product-subarray/
+ * Desc: LeetCode第152题-https://leetcode-cn.com/problems/maximum-product-subarray/
  *      寻找最大乘积的连续子数组
  */
 

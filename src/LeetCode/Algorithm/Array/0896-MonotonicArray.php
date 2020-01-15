@@ -2,10 +2,14 @@
 /**
  * User: whh935
  * Date: 2019/6/19 17:10
- * Desc: LeetCode第896题-https://leetcode.com/problems/monotonic-array/
+ * Desc: LeetCode第896题-https://leetcode-cn.com/problems/monotonic-array/
  *      判断数组是否是单调的
  */
 
+/**
+ * @param $A
+ * @return bool
+ */
 function isMonotonic($A)
 {
     $length = count($A);
