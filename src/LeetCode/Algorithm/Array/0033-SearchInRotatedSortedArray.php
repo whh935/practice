@@ -9,6 +9,11 @@
 /**
   * 思路:借助二分查找的思路，比较$nums[0]和$target的值来判断不同的case
   */
+/**
+ * @param $nums
+ * @param $target
+ * @return int
+ */
 function search($nums, $target)
 {
     $length = count($nums);

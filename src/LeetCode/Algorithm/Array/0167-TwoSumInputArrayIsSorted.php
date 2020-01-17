@@ -21,7 +21,7 @@ function twoSum($numbers, $target)
     
     $left  = 0;
     $right = $length - 1;
-    while ($left <= $right) {
+    while ($left < $right) {
         $sum = $numbers[$left] + $numbers[$right];
         if ($sum == $target) {
             return [$left + 1, $right + 1];

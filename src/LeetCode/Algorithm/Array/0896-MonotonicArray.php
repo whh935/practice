@@ -19,9 +19,7 @@ function isMonotonic($A)
     for ($i = 0; $i < $length - 1; $i++) {
         if ($A[$i] > $A[$i + 1]) {
             $increasing = false;
-        }
-
-        if ($A[$i] < $A[$i + 1]) {
+        } elseif ($A[$i] < $A[$i + 1]) {
             $decreasing = false;
         }
     }
@@ -29,10 +27,11 @@ function isMonotonic($A)
     return $increasing || $decreasing;
 }
 
-$arr = [11,11,9,4,3,3,3,1,-1,-1,3,3,3,5,5,5];
-$arr = [1,3,2];
-$arr = [1,2,3,4,5,5,4,3,2,1];
+//$arr = [11,11,9,4,3,3,3,1,-1,-1,3,3,3,5,5,5];
+//$arr = [1,3,2];
+//$arr = [1,2,3,4,5,5,4,3,2,1];
 
-$arr = [1,2,2,3];
-$arr = [1,1,1];
+//$arr = [1,2,2,3];
+//$arr = [1,1,1];
+$arr = [6,5,4,4];
 var_dump(isMonotonic($arr));exit;

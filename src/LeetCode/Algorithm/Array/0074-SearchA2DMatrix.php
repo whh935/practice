@@ -13,13 +13,13 @@
  */
 function searchMatrix($matrix, $target) 
 {
+    $found 	 = false;
 	$rows 	 = count($matrix);
 	$columns = count($matrix[0]);
 	if ($rows == 0 || $columns == 0) {
-		return false;
+		return $found;
 	}       
 
-	$found 	= false;
 	$row 	= 0;
 	$column = $columns - 1;
 	while ($row < $rows && $column >= 0) {
