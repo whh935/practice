@@ -6,7 +6,7 @@
  *      逆序打印一个链表
  */
 
-class Node 
+class ListNode
 {
     public $value = '';
     public $next  = null;
@@ -28,7 +28,7 @@ function addNode($head, $value)
         $p = $p->next;
     }
 
-    $new     = new Node($value);
+    $new     = new ListNode($value);
     $p->next = $new;
 }
 
@@ -42,10 +42,10 @@ function showNode($head)
         $p = $p->next;
         echo $p->value . ' ';
     }
-    echo PHP_EOL;
 }
 
 /**
+ * 利用栈从尾到头打印链表
  * @param $head
  */
 function printListFromTailToHeadByStack($head)
@@ -57,13 +57,14 @@ function printListFromTailToHeadByStack($head)
         array_push($nodes, $p);
     }
     
-    while (count($nodes) > 0) {
+    while (!empty($nodes)) {
         $node = array_pop($nodes);
         echo $node->value . ' ';
     }
 }
 
 /**
+ * 利用递归从尾到头打印链表
  * @param $head
  */
 function printListFromTailToHeadByRecursive($head)
@@ -77,17 +78,16 @@ function printListFromTailToHeadByRecursive($head)
     }
 }
 
-$head = new Node(null);
+$head = new ListNode(null);
 
 addNode($head, 'a');
 addNode($head, 'b');
 addNode($head, 'c');
 showNode($head);
-echo '---' . PHP_EOL;
+echo PHP_EOL;
 
 printListFromTailToHeadByStack($head);
 echo PHP_EOL;
-echo '---' . PHP_EOL;
 
 printListFromTailToHeadByRecursive($head);
 echo PHP_EOL;

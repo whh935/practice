@@ -1,9 +1,19 @@
 <?php
-class Node 
+/**
+ * User: whh935
+ * Date: 2020/3/10 10:24
+ * Desc: 单链表
+ */
+
+class ListNode
 {
     public $value = '';
     public $next  = null;
 
+    /**
+     * ListNode constructor.
+     * @param $value
+     */
     public function __construct($value)
     {
         $this->value = $value;
@@ -29,7 +39,7 @@ function addNode($head, $value)
         $p = $p->next;
     }
 
-    $new     = new Node($value);
+    $new     = new ListNode($value);
     $p->next = $new;
 }
 
@@ -40,7 +50,7 @@ function insertNodeAfter($head, $value, $pos)
     }
 
     $p   = $head;
-    $new = new Node($value);
+    $new = new ListNode($value);
     for ($i = 0; $i < $pos; $i++) {
         $p = $p->next;
     }
@@ -73,12 +83,37 @@ function showNode($head)
     echo 'NULL' . PHP_EOL;
 }
 
-function oddEvenList($head)
+/**
+ * 链表中倒数第K个节点
+ * @param $head
+ * @param $k
+ * @return null
+ */
+function findKthToTail($head, $k)
 {
+    if (is_null($head) || $k == 0) {
+        return null;
+    }
 
+    $ahead = $head;
+    for ($i = 0; $i < $k - 1; $i++) {
+        if (!is_null($ahead->next)) {
+            $ahead = $ahead->next;
+        } else {
+            return null;
+        }
+    }
+
+    $behind = $head;
+    while (!is_null($ahead->next)) {
+        $ahead = $ahead->next;
+        $behind = $behind->next;
+    }
+
+    return $behind;
 }
 
-$head = new Node(null);
+$head = new ListNode(null);
 
 addNode($head, '2');
 addNode($head, '1');
@@ -89,6 +124,8 @@ addNode($head, '4');
 addNode($head, '7');
 showNode($head);
 echo '---' . PHP_EOL;
+
+var_dump(findKthToTail($head, 3));
 
 //insertNodeAfter($head, 'd', 0);
 //showNode($head);

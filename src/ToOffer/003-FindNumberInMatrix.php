@@ -7,33 +7,33 @@
  */
 
 /**
- * 查找函数
- * @param $arr
- * @param $number
+ * @param $matrix
+ * @param $target
  * @return bool
  */
-function findNumber($arr, $number)
+function findNumberIn2DArray($matrix, $target)
 {
-    if (!is_array($arr)) {
+    if (!is_array($matrix)) {
         return false;
     }
 
-    $rows       = count($arr);
-    $columns    = count($arr[0]);
+    $rows    = count($matrix);
+    $columns = count($matrix[0]);
+    if ($rows == 0 || $columns == 0) {
+        return false;
+    }
 
     $found  = false;
     $row    = 0;
     $column = $columns - 1;
-    if ($rows > 0 && $columns > 0) {
-        while ($row < $rows && $column >= 0) {
-            if ($arr[$row][$column] == $number) {
-                $found = true;
-                break;
-            } elseif ($arr[$row][$column] > $number) {
-                $column--;
-            } else {
-                $row++;
-            }
+    while ($row < $rows && $column >= 0) {
+        if ($matrix[$row][$column] == $target) {
+            $found = true;
+            break;
+        } elseif ($matrix[$row][$column] > $target) {
+            $column--;
+        } else {
+            $row++;
         }
     }
 
@@ -41,12 +41,12 @@ function findNumber($arr, $number)
 }
 
 $test = [
-    [1,2,8,9],
-    [2,4,9,12],
+    [1,2,8,9  ],
+    [2,4,9,12 ],
     [4,7,10,13],
     [6,8,11,15]
 ];
 
-var_dump(findNumber($test, 7));
-var_dump(findNumber($test, 23));
+var_dump(findNumberIn2DArray($test, 7));
+var_dump(findNumberIn2DArray($test, 23));
 exit;

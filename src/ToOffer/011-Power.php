@@ -3,7 +3,8 @@
  * User: whh935
  * Date: 2019/7/9 16:07
  * Desc: 剑指offer面试题11
- *      求一个数的整数次方
+ *      求一个数的整数次方：实现函数double Power(double base, int exponent)，求base的exponent次方。
+ *      不得使用库函数，同时不需要考虑大数问题。
  */
 
 /**
@@ -50,7 +51,7 @@ function powerWithUnsignedExponent($base, $exponent)
 
     $result = powerWithUnsignedExponent($base, $exponent >> 1);
     $result *= $result;
-    if ($exponent & 1 == 1) {
+    if ($exponent & 1 == 1) {//判断是否为奇数
         $result *= $base;
     }
 

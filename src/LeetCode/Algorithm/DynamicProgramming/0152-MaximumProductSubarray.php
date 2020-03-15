@@ -12,6 +12,8 @@
  * maxFi=Max(maxFi−1∗Ai,Ai,minFi−1∗Ai);
  * minFi=Min(minFi−1∗Ai,Ai,maxFi−1∗Ai);
  * global=Max(maxFi,global);
+ * @param $nums
+ * @return int|mixed
  */
 function maxProduct($nums)
 {

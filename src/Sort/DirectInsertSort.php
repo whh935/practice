@@ -1,10 +1,8 @@
 <?php
-
 /**
- * Copyright © 链家网（北京）科技有限公司
- * User: wanghaohua@lianjia.com
+ * User: whh935
  * Date: 2018/12/3 12:02
- * Desc: 直接插入排序，详细描述参考https://www.onmpw.com/tm/xwzj/algorithm_11.html
+ * Desc: 直接插入排序，详细描述参考-https://www.onmpw.com/tm/xwzj/algorithm_11.html
  */
 
 /**

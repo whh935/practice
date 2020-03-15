@@ -1,9 +1,8 @@
 <?php
 /**
- * Copyright © 链家网（北京）科技有限公司
- * User: wanghaohua@lianjia.com
+ * User: whh935
  * Date: 2018/12/22 17:58
- * Desc: 快排-递归，详细描述参考https://www.onmpw.com/tm/xwzj/algorithm_108.html
+ * Desc: 快排-递归，详细描述参考-https://www.onmpw.com/tm/xwzj/algorithm_108.html
  */
 
 /**
@@ -40,19 +39,20 @@ function findPv(&$arr, $start, $end)
  * @param $start
  * @param $end
  */
-function pvSort(&$arr, $start, $end)
+function quickSort(&$arr, $start, $end)
 {
     if ($start >= $end) {
         return ;
     }
 
     $p = findPv($arr, $start, $end);
-    pvSort($arr, 0, $p - 1);
-    pvSort($arr, $p + 1, $end);
+    quickSort($arr, 0, $p - 1);
+    quickSort($arr, $p + 1, $end);
 }
 
-$arr = [10, 6, 8, 23, 4, 1, 17, 56, 32, 50, 11, 9];
+$arr = [10, 6, 8, 23, 4, 1, 17, 56, 32, 50];
+//$arr = [10, 6, 8, 23, 4];
 print_r($arr);
-pvSort($arr, 0, count($arr) - 1);
+quickSort($arr, 0, count($arr) - 1);
 print_r($arr);
 

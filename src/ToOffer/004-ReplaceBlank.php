@@ -6,41 +6,43 @@
  *      替换字符串中的空格为%20
  */
 
+
 /**
- * @param $str
+ * 先统计空格个数，再从尾到头替换
+ * @param $s
  * @return string
  */
-function replaceBlank($str)
+function replaceBlank($s)
 {
-    $original_length = strlen($str);
+    $original_length = strlen($s);
     if ($original_length <= 0) {
         return '';
     }
 
     $blanks = 0;
     for ($i = 0; $i < $original_length; $i++) {
-        if ($str[$i] == ' ') {
+        if ($s[$i] == ' ') {
             $blanks++;
         }
     }
 
     if ($blanks <= 0) {
-        return $str;
+        return $s;
     }
 
     $new_length = ($original_length + $blanks * 2) - 1;
     for ($i = $original_length - 1; $i >= 0; $i--) {
-        if ($str[$i] == ' ') {
-            $str[$new_length--] = '0';
-            $str[$new_length--] = '2';
-            $str[$new_length--] = '%';
+        if ($s[$i] == ' ') {
+            $s[$new_length--] = '0';
+            $s[$new_length--] = '2';
+            $s[$new_length--] = '%';
         } else {
-            $str[$new_length--] = $str[$i];
+            $s[$new_length--] = $s[$i];
         }
     }
 
-    return $str;
+    return $s;
 }
 
-$str = 'whh is cool!';
-var_dump(replaceBlank($str));
+$s = 'We are happy.';
+var_dump(replaceBlank($s));

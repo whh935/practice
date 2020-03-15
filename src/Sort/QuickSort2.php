@@ -1,7 +1,6 @@
 <?php
 /**
- * Copyright © 链家网（北京）科技有限公司
- * User: wanghaohua@lianjia.com
+ * User: whh935
  * Date: 2018/12/22 18:18
  * Desc: 快排-非递归，详细描述参考https://www.onmpw.com/tm/xwzj/algorithm_109.html
  */
@@ -39,7 +38,7 @@ function findPv(&$arr, $start, $end)
  * 利用栈保存起止位置
  * @param $arr
  */
-function PvSort(&$arr)
+function quickSort(&$arr)
 {
     $stack = [];
     array_push($stack, array(0, count($arr) - 1));
@@ -57,5 +56,5 @@ function PvSort(&$arr)
 
 $arr = [10,6,8,23,4,1,17,56,32,50,11,9];
 print_r($arr);
-PvSort($arr);
+quickSort($arr);
 print_r($arr);

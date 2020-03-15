@@ -13,7 +13,7 @@
 function fibonacciByRecursive($n)
 {
     if ($n <= 0) {
-        return 0;   
+        return 0;
     }
     if (1 == $n || 2 == $n) {
         return 1;
@@ -48,7 +48,7 @@ function fibonacciByNoRecursive($n)
     return $fi_n;
 }
 
-$n = 8;
+$n = 10;
 var_dump(fibonacciByRecursive($n));
 var_dump(fibonacciByNoRecursive($n));
 exit;

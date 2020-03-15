@@ -1,11 +1,17 @@
 <?php
+/**
+ * User: whh935
+ * Date: 2019/6/27 15:27
+ * Desc: 冒泡排序
+ */
+
 function show($arr)
 {
     $length = count($arr);
     for ($i = 0; $i < $length; $i++) {
         echo $arr[$i] . ' ';
     }
-    echo "\n";
+    echo PHP_EOL;
 }
 
 function bubbleSort(&$arr)

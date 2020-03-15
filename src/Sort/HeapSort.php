@@ -1,7 +1,6 @@
 <?php
 /**
- * Copyright © 链家网（北京）科技有限公司
- * User: wanghaohua@lianjia.com
+ * User: whh935
  * Date: 2018/12/22 18:48
  * Desc: 大根堆排序，详细描述参考https://www.onmpw.com/tm/xwzj/algorithm_110.html
  */
