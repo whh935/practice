@@ -29,7 +29,6 @@ function maxProduct($nums)
     $curr_max   = $nums[0];
     $curr_min   = $nums[0];
     $global_max = $nums[0];
-
     for ($i = 1; $i < $length; $i++) {
         $pre_max    = $curr_max;
         $curr_max   = max(max($pre_max * $nums[$i], $nums[$i]), $curr_min * $nums[$i]);

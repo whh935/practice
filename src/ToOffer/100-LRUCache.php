@@ -19,6 +19,10 @@ class LRUCache
         $this->max_size = $size;
     }
 
+    /**
+     * @param $key
+     * @param $value
+     */
     public function setValue($key, $value)
     {
         // 如果存在，则向队尾移动，先删除，后追加
@@ -33,6 +37,10 @@ class LRUCache
         $this->array_lru[$key] = $value;
     }
 
+    /**
+     * @param $key
+     * @return bool|mixed
+     */
     public function getValue($key)
     {
         $ret_value = false;

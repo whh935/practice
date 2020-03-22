@@ -23,7 +23,6 @@ function maxSubArray($nums)
 
     $res = $max = $nums[0];
     $len = count($nums);
-
     for ($i = 1; $i < $len; $i++) {
         // 当sum小于等于0时，就从下一个数重新开始
         // 同时更新每次叠加的最大值
