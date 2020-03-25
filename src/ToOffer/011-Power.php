@@ -29,7 +29,7 @@ function power($base, $exponent)
 
     $result = powerWithUnsignedExponent($base, $abs_exponent);
     if ($exponent < 0) {
-        $result = 1 / $result;
+        $result = 1.0 / $result;
     }
 
     return $result;
