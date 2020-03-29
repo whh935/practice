@@ -10,16 +10,16 @@
 
 class ListNode
 {
-    public $value = '';
+    public $val = '';
     public $next  = null;
 
     /**
      * ListNode constructor.
-     * @param $value
+     * @param $val
      */
-    public function __construct($value)
+    public function __construct($val)
     {
-        $this->value = $value;
+        $this->val = $val;
     }
 }
 
@@ -38,7 +38,7 @@ function showNode($head)
 {
     $p = $head;
     while (!is_null($p)) {
-        echo $p->value . '->';
+        echo $p->val . '->';
         $p = $p->next;
     }
     echo 'NULL' . PHP_EOL;

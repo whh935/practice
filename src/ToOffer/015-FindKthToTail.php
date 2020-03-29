@@ -8,16 +8,16 @@
 
 class ListNode
 {
-    public $value = '';
+    public $val = '';
     public $next  = null;
 
     /**
      * ListNode constructor.
-     * @param $value
+     * @param $val
      */
-    public function __construct($value)
+    public function __construct($val)
     {
-        $this->value = $value;
+        $this->val = $val;
     }
 }
 
@@ -44,7 +44,7 @@ function showNode($head)
     $p = $head;
     while (!is_null($p->next)) {
         $p = $p->next;
-        echo $p->value . '->';
+        echo $p->val . '->';
     }
     echo 'NULL' . PHP_EOL;
 }
@@ -81,14 +81,12 @@ function findKthToTail($head, $k)
 
 $head = new ListNode(null);
 
-addNode($head, '2');
-addNode($head, '1');
-addNode($head, '3');
-addNode($head, '5');
-addNode($head, '6');
-addNode($head, '4');
-addNode($head, '7');
+addNode($head, 1);
+addNode($head, 2);
+addNode($head, 3);
+addNode($head, 4);
+addNode($head, 5);
 showNode($head);
 echo PHP_EOL;
 
-var_dump(findKthToTail($head, 3));
+var_dump(findKthToTail($head->next, 3));
