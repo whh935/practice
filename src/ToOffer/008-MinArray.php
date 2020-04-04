@@ -10,9 +10,12 @@
 
 /**
  * 分治法
- * 当numbers[mid] > numbers[high]时，说明最小值在mid的右边，缩小范围low = mid + 1
- * 当numbers[mid] == numbers[high]时，虽然不知道最小值的范围，但是可以肯定的是去除numbers[high]是没有影响的，缩小范围high -= 1
- * 当numbers[mid] < numbers[high]时，最小值的不是numbers[mid]，就是在mid的左边，缩小范围high = mid
+ * 当numbers[mid] > numbers[high]时，
+ *      说明最小值在mid的右边，缩小范围low = mid + 1
+ * 当numbers[mid] == numbers[high]时，
+ *      虽然不知道最小值的范围，但是可以肯定的是去除numbers[high]是没有影响的，缩小范围high -= 1
+ * 当numbers[mid] < numbers[high]时，
+ *      最小值的不是numbers[mid]，就是在mid的左边，缩小范围high = mid
  * @param $numbers
  * @return null
  */
