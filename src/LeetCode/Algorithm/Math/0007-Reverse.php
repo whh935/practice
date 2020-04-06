@@ -9,32 +9,36 @@
  *      请根据这个假设，如果反转后整数溢出那么就返回 0。
  */
 
-/**
- * @param $x
- * @return int
- */
-function reverse($x)
+class Solution
 {
-    $ans = 0;
-    $max = pow(2, 31) - 1;//int最大值 2^31-1=2147483647
-    $min = -pow(2, 31);//int最小值 -2^31=-2147483648
-    while ($x != 0) {
-        $pop = $x % 10;
-        if ($ans > (int)($max / 10) || ($ans == (int)($max / 10) && $pop > 7)) {
-            return 0;
-        }
-        if ($ans < (int)($min / 10) || ($ans == (int)($min / 10) && $pop < -8)) {
-            return 0;
+    /**
+     * @param $x
+     * @return int
+     */
+    function reverse($x)
+    {
+        $ans = 0;
+        $max = pow(2, 31) - 1;//int最大值 2^31-1=2147483647
+        $min = -pow(2, 31);//int最小值 -2^31=-2147483648
+        while ($x != 0) {
+            $pop = $x % 10;
+            if ($ans > (int)($max / 10) || ($ans == (int)($max / 10) && $pop > 7)) {
+                return 0;
+            }
+            if ($ans < (int)($min / 10) || ($ans == (int)($min / 10) && $pop < -8)) {
+                return 0;
+            }
+
+            $ans = $ans * 10 + $pop;
+            $x = (int)($x / 10);
         }
 
-        $ans = $ans * 10 + $pop;
-        $x = (int)($x / 10);
+        return $ans;
     }
-
-    return $ans;
 }
 
+$solution = new Solution();
 $x = 123;
 //$x = -123456789999999;
-$ans = reverse($x);
+$ans = $solution->reverse($x);
 var_dump($ans);

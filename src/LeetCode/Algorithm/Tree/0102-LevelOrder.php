@@ -50,38 +50,41 @@ class BinaryTreeNode
     }
 }
 
-/**
- * 利用队列实现层次遍历
- * @param $root
- * @return array
- */
-function levelOrder($root)
+class Solution
 {
-    $levels = [];
-    if ($root == null) {
+    /**
+     * 利用队列实现层次遍历
+     * @param $root
+     * @return array
+     */
+    function levelOrder($root)
+    {
+        $levels = [];
+        if ($root == null) {
+            return $levels;
+        }
+
+        $level = 0;
+        $queue = [];
+        array_push($queue, $root);
+        while (!empty($queue)) {
+            $level_len = count($queue);
+            for ($i = 0; $i < $level_len; $i++) {
+                $curr = array_shift($queue);
+                $levels[$level][] = $curr->val;
+
+                if ($curr->left != null) {
+                    array_push($queue, $curr->left);
+                }
+                if ($curr->right != null) {
+                    array_push($queue, $curr->right);
+                }
+            }
+            $level++;
+        }
+
         return $levels;
     }
-
-    $level = 0;
-    $queue = [];
-    array_push($queue, $root);
-    while (!empty($queue)) {
-        $level_len = count($queue);
-        for ($i = 0; $i < $level_len; $i++) {
-            $curr = array_shift($queue);
-            $levels[$level][] = $curr->val;
-
-            if ($curr->left != null) {
-                array_push($queue, $curr->left);
-            }
-            if ($curr->right != null) {
-                array_push($queue, $curr->right);
-            }
-        }
-        $level++;
-    }
-
-    return $levels;
 }
 
 $a = new BinaryTreeNode(1);
@@ -95,5 +98,6 @@ $a->buildTree($b, $c);
 $b->buildTree($d, $e);
 $c->buildTree($f, null);
 
-print_r(json_encode(levelOrder($a)));
+$solution = new Solution();
+print_r(json_encode($solution->levelOrder($a)));
 echo PHP_EOL;

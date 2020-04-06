@@ -45,33 +45,36 @@ class BinaryTreeNode
     }
 }
 
-/**
- * 利用栈中序遍历二叉树，与前序遍历不同的是，出栈时才将结果写入列表
- * @param $root
- * @return array
- */
-function inorderTraversal($root)
+class Solution
 {
-    if ($root == null) {
-        return [];
-    }
-
-    $result = [];
-    $stack = [];
-    $curr = $root;
-    while (!empty($stack) || $curr != null) {
-        while ($curr != null) {
-            array_push($stack, $curr);
-            $curr = $curr->left;
+    /**
+     * 利用栈中序遍历二叉树，与前序遍历不同的是，出栈时才将结果写入列表
+     * @param $root
+     * @return array
+     */
+    function inorderTraversal($root)
+    {
+        if ($root == null) {
+            return [];
         }
 
-        $node = array_pop($stack);//此时左子树遍历完成
-        $result[] = $node->val;//将根节点加入列表
+        $result = [];
+        $stack = [];
+        $curr = $root;
+        while (!empty($stack) || $curr != null) {
+            while ($curr != null) {
+                array_push($stack, $curr);
+                $curr = $curr->left;
+            }
 
-        $curr = $node->right;//遍历右子树
+            $node = array_pop($stack);//此时左子树遍历完成
+            $result[] = $node->val;//将根节点加入列表
+
+            $curr = $node->right;//遍历右子树
+        }
+
+        return $result;
     }
-
-    return $result;
 }
 
 $a = new BinaryTreeNode(1);
@@ -85,5 +88,6 @@ $a->buildTree($b, $c);
 $b->buildTree($d, $e);
 $c->buildTree($f, null);
 
-$result = inorderTraversal($a);
+$solution = new Solution();
+$result = $solution->inorderTraversal($a);
 var_dump($result);

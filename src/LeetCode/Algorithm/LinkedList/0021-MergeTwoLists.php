@@ -21,62 +21,66 @@ class ListNode
     {
         $this->val = $val;
     }
-}
 
-function addNode($head, $value)
-{
-    $p = $head;
-    while (!is_null($p->next)) {
-        $p = $p->next;
-    }
-
-    $new     = new ListNode($value);
-    $p->next = $new;
-}
-
-function showNode($head)
-{
-    $p = $head;
-    while (!is_null($p)) {
-        echo $p->val . '->';
-        $p = $p->next;
-    }
-    echo 'NULL' . PHP_EOL;
-}
-
-/**
- * @param $l1
- * @param $l2
- * @return null
- */
-function mergeTwoLists($l1, $l2)
-{
-    $result = new ListNode(null);
-    $curr = $result;
-    while ($l1 != null && $l2 != null) {
-        if ($l1->val <= $l2->val) {
-            $curr->next = $l1;
-            $l1 = $l1->next;
-        } else {
-            $curr->next = $l2;
-            $l2 = $l2->next;
+    function addNode($head, $value)
+    {
+        $p = $head;
+        while (!is_null($p->next)) {
+            $p = $p->next;
         }
-        $curr = $curr->next;
+
+        $new     = new ListNode($value);
+        $p->next = $new;
     }
 
-    $curr->next = ($l1 != null) ? $l1 : $l2;
-    return $result->next;
+    function showNode($head)
+    {
+        $p = $head;
+        while (!is_null($p)) {
+            echo $p->val . '->';
+            $p = $p->next;
+        }
+        echo 'NULL' . PHP_EOL;
+    }
+}
+
+class Solution
+{
+    /**
+     * @param $l1
+     * @param $l2
+     * @return ListNode
+     */
+    function mergeTwoLists($l1, $l2)
+    {
+        $result = new ListNode(null);
+        $curr = $result;
+        while ($l1 != null && $l2 != null) {
+            if ($l1->val <= $l2->val) {
+                $curr->next = $l1;
+                $l1 = $l1->next;
+            } else {
+                $curr->next = $l2;
+                $l2 = $l2->next;
+            }
+            $curr = $curr->next;
+        }
+
+        $curr->next = ($l1 != null) ? $l1 : $l2;
+        return $result->next;
+    }
 }
 
 $l1 = new ListNode(null);
-addNode($l1, 1);
-addNode($l1, 2);
-addNode($l1, 4);
+$l1->addNode($l1, 1);
+$l1->addNode($l1, 2);
+$l1->addNode($l1, 4);
 
 $l2 = new ListNode(null);
-addNode($l2, 1);
-addNode($l2, 3);
-addNode($l2, 4);
+$l2->addNode($l2, 1);
+$l2->addNode($l2, 3);
+$l2->addNode($l2, 4);
 
-$merge = mergeTwoLists($l1->next, $l2->next);
-showNode($merge);
+$solution = new Solution();
+$merge = $solution->mergeTwoLists($l1->next, $l2->next);
+$merge->showNode($merge);

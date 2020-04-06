@@ -7,24 +7,29 @@
  *      可以假设题目有唯一解。
  */
 
-/**
- * @param $nums
- * @param $target
- * @return array
- */
-function twoSum($nums, $target)
+class Solution
 {
-    $idx = [];
-    foreach ($nums as $key => $value) {
-        if (isset($idx[$target - $value])) {
-            return [$idx[$target - $value], $key];
+
+    /**
+     * @param $nums
+     * @param $target
+     * @return array
+     */
+    function twoSum($nums, $target)
+    {
+        $idx = [];
+        foreach ($nums as $key => $value) {
+            if (isset($idx[$target - $value])) {
+                return [$idx[$target - $value], $key];
+            }
+
+            $idx[$value] = $key;
         }
 
-        $idx[$value] = $key;
+        return [];
     }
-
-    return [];
 }
 
+$solution = new Solution();
 $arr = [2, 7, 11, 15];
-var_dump(twoSum($arr, 9));exit;
+var_dump($solution->twoSum($arr, 9));exit;

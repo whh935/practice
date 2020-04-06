@@ -7,33 +7,37 @@
  *      本题中，我们将空字符串定义为有效的回文串。
  */
 
-/**
- * @param $s
- * @return bool
- */
-function isPalindrome($s)
+class Solution
 {
-    $left  = 0;
-    $right = strlen($s) - 1;
+    /**
+     * @param $s
+     * @return bool
+     */
+    function isPalindrome($s)
+    {
+        $left  = 0;
+        $right = strlen($s) - 1;
 
-    while ($left < $right) {
-        while ($left < $right && !ctype_alnum($s[$left])) {
+        while ($left < $right) {
+            while ($left < $right && !ctype_alnum($s[$left])) {
+                $left++;
+            }
+            while ($left < $right && !ctype_alnum($s[$right])) {
+                $right--;
+            }
+            if (strtolower($s[$left]) != strtolower($s[$right])) {
+                return false;
+            }
+
             $left++;
-        }
-        while ($left < $right && !ctype_alnum($s[$right])) {
             $right--;
         }
-        if (strtolower($s[$left]) != strtolower($s[$right])) {
-            return false;
-        }
 
-        $left++;
-        $right--;
+        return true;
     }
-
-    return true;
 }
 
+$solution = new Solution();
 $s = 'A man, a plan, a canal: Panama';
 //$s = '.,';
-var_dump(isPalindrome($s));exit;
+var_dump($solution->isPalindrome($s));exit;

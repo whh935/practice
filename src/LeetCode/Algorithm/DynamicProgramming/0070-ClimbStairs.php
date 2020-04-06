@@ -13,49 +13,53 @@
  *          2.  2 阶
  */
 
-/**
- * 斐波那契递推公式：f(n)=f(n-1)+f(n-2)
- * @param $n
- * @return int
- */
-function climbStairs1($n)
+class Solution
 {
-    if ($n <= 2) {
-        return $n;
+    /**
+     * 斐波那契递推公式：f(n)=f(n-1)+f(n-2)
+     * @param $n
+     * @return int
+     */
+    function climbStairs1($n)
+    {
+        if ($n <= 2) {
+            return $n;
+        }
+
+        $one = 1;
+        $two = 2;
+        $ans = 0;
+        for ($i = 3; $i <= $n; $i++) {
+            $ans = $one + $two;
+            $one = $two;
+            $two = $ans;
+        }
+
+        return $ans;
     }
 
-    $one = 1;
-    $two = 2;
-    $ans = 0;
-    for ($i = 3; $i <= $n; $i++) {
-        $ans = $one + $two;
-        $one = $two;
-        $two = $ans;
-    }
+    /**
+     * 动态规划状态转移方程：dp[i]=dp[i-1]+dp[i-2]
+     * @param $n
+     * @return mixed
+     */
+    function climbStairs2($n)
+    {
+        if ($n <= 1) {//判断1防止数组越界
+            return $n;
+        }
 
-    return $ans;
+        $dp[1] = 1;
+        $dp[2] = 2;
+        for ($i = 3; $i <= $n; $i++) {
+            $dp[$i] = $dp[$i - 1] + $dp[$i - 2];
+        }
+
+        return $dp[$n];
+    }
 }
 
-/**
- * 动态规划状态转移方程：dp[i]=dp[i-1]+dp[i-2]
- * @param $n
- * @return mixed
- */
-function climbStairs2($n)
-{
-    if ($n <= 1) {//判断1防止数组越界
-        return $n;
-    }
-
-    $dp[1] = 1;
-    $dp[2] = 2;
-    for ($i = 3; $i <= $n; $i++) {
-        $dp[$i] = $dp[$i - 1] + $dp[$i - 2];
-    }
-
-    return $dp[$n];
-}
-
+$solution = new Solution();
 $n = 3;
-var_dump(climbStairs1($n));
-var_dump(climbStairs2($n));
+var_dump($solution->climbStairs1($n));
+var_dump($solution->climbStairs2($n));

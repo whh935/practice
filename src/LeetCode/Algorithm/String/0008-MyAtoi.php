@@ -23,63 +23,67 @@
  *          解释: 数字 "-91283472332" 超过 32 位有符号整数范围。因此返回 INT_MIN (−2^31) 。
  */
 
-/**
- * @param $str
- * @return int|number
- */
-function myAtoi($str)
+class Solution
 {
-    $len = strlen($str);
-    $index = 0;
+    /**
+     * @param $str
+     * @return int|number
+     */
+    function myAtoi($str)
+    {
+        $len = strlen($str);
+        $index = 0;
 
-    //去除前导空格
-    while ($index < $len) {
-        if ($str[$index] != ' ') {
-            break;
-        }
-        $index++;
-    }
-
-    if ($index == $len) {
-        return 0;
-    }
-
-    //第 1 个字符如果是符号，判断合法性，并记录正负
-    $sign = 1;
-    $first_char = $str[$index];
-    if ($first_char == '+') {
-        $index++;
-    } elseif ($first_char == '-') {
-        $index++;
-        $sign = -1;
-    }
-
-    $res = 0;
-    $max = pow(2, 31) - 1;
-    $min = -pow(2,31);
-    while ($index < $len) {
-        $curr_char = $str[$index];
-        //判断合法性
-        if ($curr_char > '9' || $curr_char < '0') {
-            break;
+        //去除前导空格
+        while ($index < $len) {
+            if ($str[$index] != ' ') {
+                break;
+            }
+            $index++;
         }
 
-        //环境只能存储 32 位大小的有符号整数，因此，需要提前判断乘以 10 以后是否越界
-        if ($res > (int)($max / 10) || ($res == (int)($max / 10) && ($curr_char - '0') > $max % 10)) {
-            return $max;
-        }
-        if ($res < (int)($min / 10) || ($res == (int)($min / 10) && ($curr_char - '0') > -($min % 10))) {
-            return $min;
+        if ($index == $len) {
+            return 0;
         }
 
-        //每一步都把符号位乘进去
-        $res = $res *  10 + $sign * ($curr_char - '0');
-        $index++;
+        //第 1 个字符如果是符号，判断合法性，并记录正负
+        $sign = 1;
+        $first_char = $str[$index];
+        if ($first_char == '+') {
+            $index++;
+        } elseif ($first_char == '-') {
+            $index++;
+            $sign = -1;
+        }
+
+        $res = 0;
+        $max = pow(2, 31) - 1;
+        $min = -pow(2,31);
+        while ($index < $len) {
+            $curr_char = $str[$index];
+            //判断合法性
+            if ($curr_char > '9' || $curr_char < '0') {
+                break;
+            }
+
+            //环境只能存储 32 位大小的有符号整数，因此，需要提前判断乘以 10 以后是否越界
+            if ($res > (int)($max / 10) || ($res == (int)($max / 10) && ($curr_char - '0') > $max % 10)) {
+                return $max;
+            }
+            if ($res < (int)($min / 10) || ($res == (int)($min / 10) && ($curr_char - '0') > -($min % 10))) {
+                return $min;
+            }
+
+            //每一步都把符号位乘进去
+            $res = $res *  10 + $sign * ($curr_char - '0');
+            $index++;
+        }
+
+        return $res;
     }
-
-    return $res;
 }
 
-//$str = '42';
-$str = '2147483648';
-var_dump(myAtoi($str));
+$solution = new Solution();
+$str = '42';
+//$str = '2147483648';
+var_dump($solution->myAtoi($str));

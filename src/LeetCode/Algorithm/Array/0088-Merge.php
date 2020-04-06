@@ -15,30 +15,35 @@
  *          输出: [1,2,2,3,5,6]
  */
 
-/**
- * 从后往前进行比较
- * @param $nums1
- * @param $m
- * @param $nums2
- * @param $n
- */
-function merge(&$nums1, $m, $nums2, $n)
+class Solution
 {
-    $merge_index = $m-- + $n-- - 1;
-    while ($m >= 0 && $n >= 0) {
-        $nums1[$merge_index--] = $nums1[$m] > $nums2[$n] ? $nums1[$m--] : $nums2[$n--];
-    }
+    /**
+     * 从后往前进行比较
+     * @param $nums1
+     * @param $m
+     * @param $nums2
+     * @param $n
+     */
+    function merge(&$nums1, $m, $nums2, $n)
+    {
+        $merge_index = $m-- + $n-- - 1;
+        while ($m >= 0 && $n >= 0) {
+            $nums1[$merge_index--] = $nums1[$m] > $nums2[$n] ? $nums1[$m--] : $nums2[$n--];
+        }
 
-    while ($n >= 0) {
-        $nums1[$merge_index--] = $nums2[$n--];
+        while ($n >= 0) {
+            $nums1[$merge_index--] = $nums2[$n--];
+        }
     }
 }
 
+$solution = new Solution();
 $nums1 = [1,2,3,0,0,0];
 $nums2 = [2,5,6];
-merge($nums1, 3, $nums2, 3);
+$solution->merge($nums1, 3, $nums2, 3);
+var_dump($nums1);
 
 //$nums1 = [0];
 //$nums2 = [1];
-//merge($nums1, 0, $nums2, 1);
-var_dump($nums1);
+//$solution->merge($nums1, 0, $nums2, 1);
+//var_dump($nums1);

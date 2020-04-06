@@ -7,33 +7,37 @@
  *      可以假设题目有唯一解。
  */
 
-/**
- * @param $numbers
- * @param $target
- * @return array
- */
-function twoSum($numbers, $target)
+class Solution
 {
-    $length = count($numbers);
-    if ($length <= 1) {
+    /**
+     * @param $numbers
+     * @param $target
+     * @return array
+     */
+    function twoSum($numbers, $target)
+    {
+        $length = count($numbers);
+        if ($length <= 1) {
+            return [];
+        }
+
+        $left  = 0;
+        $right = $length - 1;
+        while ($left < $right) {
+            $sum = $numbers[$left] + $numbers[$right];
+            if ($sum == $target) {
+                return [$left + 1, $right + 1];
+            } elseif ($sum > $target) {
+                $right--;
+            } else {
+                $left++;
+            }
+        }
+
         return [];
     }
-    
-    $left  = 0;
-    $right = $length - 1;
-    while ($left < $right) {
-        $sum = $numbers[$left] + $numbers[$right];
-        if ($sum == $target) {
-            return [$left + 1, $right + 1];
-        } elseif ($sum > $target) {
-            $right--;
-        } else {
-            $left++;
-        }
-    }
-
-    return [];
 }
 
+$solutio = new Solution();
 $arr = [2, 7, 11, 15];
-var_dump(twoSum($arr, 9));exit;
+var_dump($solutio->twoSum($arr, 9));exit;

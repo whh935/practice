@@ -6,36 +6,40 @@
  *      在一个从左到右递增，从上到下递增的二维数组矩阵中查找一个数，存在返回true，否则false
  */
 
-/**
- * @param $matrix
- * @param $target
- * @return bool
- */
-function searchMatrix($matrix, $target) 
+class Solution
 {
-    $found 	 = false;
-	$rows 	 = count($matrix);
-	$columns = count($matrix[0]);
-	if ($rows == 0 || $columns == 0) {
-		return $found;
-	}       
+    /**
+     * @param $matrix
+     * @param $target
+     * @return bool
+     */
+    function searchMatrix($matrix, $target)
+    {
+        $found 	 = false;
+        $rows 	 = count($matrix);
+        $columns = count($matrix[0]);
+        if ($rows == 0 || $columns == 0) {
+            return $found;
+        }
 
-	$row 	= 0;
-	$column = $columns - 1;
-	while ($row < $rows && $column >= 0) {
-		if ($matrix[$row][$column] == $target) {
-			$found = true;
-			break;
-		} elseif ($matrix[$row][$column] > $target) {
-			$column--;
-		} else {
-			$row++;
-		}
-	}
+        $row 	= 0;
+        $column = $columns - 1;
+        while ($row < $rows && $column >= 0) {
+            if ($matrix[$row][$column] == $target) {
+                $found = true;
+                break;
+            } elseif ($matrix[$row][$column] > $target) {
+                $column--;
+            } else {
+                $row++;
+            }
+        }
 
-	return $found;
+        return $found;
+    }
 }
 
+$solution = new Solution();
 $matrix = [
   [1,   3,  5,  7],
   [10, 11, 16, 20],
@@ -43,5 +47,5 @@ $matrix = [
 ];
 $target = 3;
 
-var_dump(searchMatrix($matrix, $target));
+var_dump($solution->searchMatrix($matrix, $target));
 

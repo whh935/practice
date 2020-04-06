@@ -47,53 +47,57 @@ class BinaryTreeNode
     }
 }
 
-/**
- * 利用递归计算深度
- * @param $root
- * @return int|mixed
- */
-function maxDepth1($root)
+class Solution
 {
-    if ($root == null) {
-        return 0;
-    }
+    /**
+     * 利用递归计算深度
+     * @param $root
+     * @return int|mixed
+     */
+    function maxDepth1($root)
+    {
+        if ($root == null) {
+            return 0;
+        }
 
-    $left_depth = maxDepth1($root->left);
-    $right_depth = maxDepth1($root->right);
-    $depth = max($left_depth, $right_depth) + 1;
-    return $depth;
-}
-
-/**
- * 利用队列+层次遍历计算深度
- * @param $root
- * @return int
- */
-function maxDepth2($root)
-{
-    $depth = 0;
-    if ($root == null) {
+        $left_depth = $this->maxDepth1($root->left);
+        $right_depth = $this->maxDepth1($root->right);
+        $depth = max($left_depth, $right_depth) + 1;
         return $depth;
     }
 
-    $queue = [];
-    array_push($queue, $root);
-    while (!empty($queue)) {
-        $level_len = count($queue);
-        for ($i = 0; $i < $level_len; $i++) {
-            $curr = array_shift($queue);
-            if ($curr->left != null) {
-                array_push($queue, $curr->left);
-            }
-            if ($curr->right != null) {
-                array_push($queue, $curr->right);
-            }
+    /**
+     * 利用队列+层次遍历计算深度
+     * @param $root
+     * @return int
+     */
+    function maxDepth2($root)
+    {
+        $depth = 0;
+        if ($root == null) {
+            return $depth;
         }
-        $depth++;
-    }
 
-    return $depth;
+        $queue = [];
+        array_push($queue, $root);
+        while (!empty($queue)) {
+            $level_len = count($queue);
+            for ($i = 0; $i < $level_len; $i++) {
+                $curr = array_shift($queue);
+                if ($curr->left != null) {
+                    array_push($queue, $curr->left);
+                }
+                if ($curr->right != null) {
+                    array_push($queue, $curr->right);
+                }
+            }
+            $depth++;
+        }
+
+        return $depth;
+    }
 }
+
 
 $a = new BinaryTreeNode(1);
 $b = new BinaryTreeNode(2);
@@ -106,5 +110,6 @@ $a->buildTree($b, $c);
 $b->buildTree($d, $e);
 $c->buildTree($f, null);
 
-var_dump(maxDepth1($a));
-var_dump(maxDepth2($a));
+$solution = new Solution();
+var_dump($solution->maxDepth1($a));
+var_dump($solution->maxDepth2($a));

@@ -11,37 +11,41 @@
  *      如输入: "()[]{}"，输出: true
  */
 
-/**
- * @param $s
- * @return bool
- */
-function isValid($s)
+class Solution
 {
-    $len = strlen($s);
-    if ($len == 0) {
-        return true;
-    }
-    if ($len % 2 == 1) {
-        return false;
-    }
+    /**
+     * @param $s
+     * @return bool
+     */
+    function isValid($s)
+    {
+        $len = strlen($s);
+        if ($len == 0) {
+            return true;
+        }
+        if ($len % 2 == 1) {
+            return false;
+        }
 
-    $stack = [];
-    for ($i = 0; $i < $len; $i++) {
-        if (in_array($s[$i], ['(', '{', '['])) {
-            array_push($stack, $s[$i]);
-        } else {
-            $char = array_pop($stack);
-            if (($s[$i] == ')' && $char != '(')
-                || ($s[$i] == '}' && $char != '{')
-                || ($s[$i] == ']' && $char != '[')
-            ) {
-                return false;
+        $stack = [];
+        for ($i = 0; $i < $len; $i++) {
+            if (in_array($s[$i], ['(', '{', '['])) {
+                array_push($stack, $s[$i]);
+            } else {
+                $char = array_pop($stack);
+                if (($s[$i] == ')' && $char != '(')
+                    || ($s[$i] == '}' && $char != '{')
+                    || ($s[$i] == ']' && $char != '[')
+                ) {
+                    return false;
+                }
             }
         }
-    }
 
-    return count($stack) == 0;
+        return count($stack) == 0;
+    }
 }
 
-$s = '(';
-var_dump(isValid($s));
+$solution = new Solution();
+$s = '()';
+var_dump($solution->isValid($s));

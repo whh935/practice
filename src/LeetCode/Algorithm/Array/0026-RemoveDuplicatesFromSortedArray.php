@@ -6,29 +6,33 @@
  *      删除排序数组中的重复项，返回数组长度
  */
 
-/**
-  * 思路：快慢指针
-  */
-/**
- * @param $nums
- * @return int
- */
-function removeDuplicates(&$nums)
+class Solution
 {
-    $length = count($nums);
-    if ($length < 2) {
-        return $length;
-    }
-
-    for ($i = 0, $j = 1; $j < $length; $j++) {
-        if ($nums[$i] != $nums[$j]) {
-            $i++;
-            $nums[$i] = $nums[$j];
+    /**
+     * 思路：快慢指针
+     */
+    /**
+     * @param $nums
+     * @return int
+     */
+    function removeDuplicates(&$nums)
+    {
+        $length = count($nums);
+        if ($length < 2) {
+            return $length;
         }
-    }
 
-    return $i + 1;
+        for ($i = 0, $j = 1; $j < $length; $j++) {
+            if ($nums[$i] != $nums[$j]) {
+                $i++;
+                $nums[$i] = $nums[$j];
+            }
+        }
+
+        return $i + 1;
+    }
 }
 
+$solution = new Solution();
 $nums = [0,0,1,1,1,2,2,3,3,4];
-var_dump(removeDuplicates($nums));exit;
+var_dump($solution->removeDuplicates($nums));exit;

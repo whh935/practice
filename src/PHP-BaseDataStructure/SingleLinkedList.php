@@ -18,84 +18,103 @@ class ListNode
     {
         $this->value = $value;
     }
-}
 
-function countNode($head)
-{
-    $p = $head;
-    $i = 0;
-    while (!is_null($p->next)) {
-        ++$i;
-        $p = $p->next;
+    /**
+     * @param $head
+     * @return int
+     */
+    function countNode($head)
+    {
+        $p = $head;
+        $i = 0;
+        while (!is_null($p->next)) {
+            ++$i;
+            $p = $p->next;
+        }
+
+        return $i;
     }
 
-    return $i;
-}
+    /**
+     * @param $head
+     * @param $value
+     */
+    function addNode($head, $value)
+    {
+        $p = $head;
+        while (!is_null($p->next)) {
+            $p = $p->next;
+        }
 
-function addNode($head, $value)
-{
-    $p = $head;
-    while (!is_null($p->next)) {
-        $p = $p->next;
+        $new     = new ListNode($value);
+        $p->next = $new;
     }
 
-    $new     = new ListNode($value);
-    $p->next = $new;
-}
+    /**
+     * @param $head
+     * @param $value
+     * @param $pos
+     */
+    function insertNodeAfter($head, $value, $pos)
+    {
+        if ($pos > $this->countNode($head)) {
+            return;
+        }
 
-function insertNodeAfter($head, $value, $pos)
-{
-    if ($pos > countNode($head)) {
-        return;
+        $p   = $head;
+        $new = new ListNode($value);
+        for ($i = 0; $i < $pos; $i++) {
+            $p = $p->next;
+        }
+
+        $new->next = $p->next;
+        $p->next   = $new;
     }
 
-    $p   = $head;
-    $new = new ListNode($value);
-    for ($i = 0; $i < $pos; $i++) {
-        $p = $p->next;
+    /**
+     * @param $head
+     * @param $pos
+     */
+    function deleteNode($head, $pos)
+    {
+        if ($pos > $this->countNode($head)) {
+            return;
+        }
+
+        $p = $head;
+        for ($i = 0; $i < $pos - 1; $i++) {
+            $p = $p->next;
+        }
+
+        $p->next = $p->next->next;
     }
 
-    $new->next = $p->next;
-    $p->next   = $new;
-}
-
-function deleteNode($head, $pos)
-{
-    if ($pos > countNode($head)) {
-        return;
+    /**
+     * @param $head
+     */
+    function showNode($head)
+    {
+        $p = $head;
+        while (!is_null($p)) {
+            echo $p->value . '->';
+            $p = $p->next;
+        }
+        echo 'NULL' . PHP_EOL;
     }
-
-    $p = $head;
-    for ($i = 0; $i < $pos - 1; $i++) {
-        $p = $p->next;
-    }
-
-    $p->next = $p->next->next;
-}
-
-function showNode($head)
-{
-    $p = $head;
-    while (!is_null($p)) {
-        echo $p->value . '->';
-        $p = $p->next;
-    }
-    echo 'NULL' . PHP_EOL;
 }
 
 $head = new ListNode(null);
+$head->addNode($head, '2');
+$head->addNode($head, '1');
+$head->addNode($head, '3');
+$head->addNode($head, '5');
+$head->addNode($head, '6');
+$head->addNode($head, '4');
+$head->addNode($head, '7');
+$head->showNode($head->next);
 
-addNode($head, '2');
-addNode($head, '1');
-addNode($head, '3');
-addNode($head, '5');
-addNode($head, '6');
-addNode($head, '4');
-addNode($head, '7');
-showNode($head->next);
+$head->insertNodeAfter($head, '8', 0);
+$head->showNode($head->next);
 
-insertNodeAfter($head, '8', 0);
-showNode($head->next);
-
-deleteNode($head, 2);
-showNode($head->next);
+$head->deleteNode($head, 2);
+$head->showNode($head->next);

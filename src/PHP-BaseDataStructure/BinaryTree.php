@@ -35,67 +35,67 @@ class BinaryTreeNode
             $this->right = $right_child;
         }
     }
-}
 
-/**
- * 先序遍历-递归
- * @param $root
- */
-function preOrderByRecursive($root)
-{
-    if (!is_null($root)) {
-        echo $root->val . ' ';
-        preOrderByRecursive($root->left);
-        preOrderByRecursive($root->right);
+    /**
+     * 先序遍历-递归
+     * @param $root
+     */
+    public function preOrderByRecursive($root)
+    {
+        if (!is_null($root)) {
+            echo $root->val . ' ';
+            $this->preOrderByRecursive($root->left);
+            $this->preOrderByRecursive($root->right);
+        }
+    }
+
+    /**
+     * 中序遍历-递归
+     * @param $root
+     */
+    public function inOrderByRecursive($root)
+    {
+        if (!is_null($root)) {
+            $this->inOrderByRecursive($root->left);
+            echo $root->val . ' ';
+            $this->inOrderByRecursive($root->right);
+        }
+    }
+
+    /**
+     * 后序遍历-递归
+     * @param $root
+     */
+    public function postOrderByRecursive($root)
+    {
+        if (!is_null($root)) {
+            $this->postOrderByRecursive($root->left);
+            $this->postOrderByRecursive($root->right);
+            echo $root->val . ' ';
+        }
     }
 }
 
-/**
- * 中序遍历-递归
- * @param $root
- */
-function inOrderByRecursive($root)
-{
-    if (!is_null($root)) {
-        inOrderByRecursive($root->left);
-        echo $root->val . ' ';
-        inOrderByRecursive($root->right);
-    }
-}
-
-/**
- * 后序遍历-递归
- * @param $root
- */
-function postOrderByRecursive($root)
-{
-    if (!is_null($root)) {
-        postOrderByRecursive($root->left);
-        postOrderByRecursive($root->right);
-        echo $root->val . ' ';
-    }
-}
-
-$a = new BinaryTreeNode('A');
-$b = new BinaryTreeNode('B');
-$c = new BinaryTreeNode('C');
-$d = new BinaryTreeNode('D');
-$e = new BinaryTreeNode('E');
-$f = new BinaryTreeNode('F');
-$g = new BinaryTreeNode('G');
-$h = new BinaryTreeNode('H');
-$i = new BinaryTreeNode('I');
+$a = new BinaryTreeNode(1);
+$b = new BinaryTreeNode(2);
+$c = new BinaryTreeNode(3);
+$d = new BinaryTreeNode(4);
+$e = new BinaryTreeNode(5);
+$f = new BinaryTreeNode(6);
+$g = new BinaryTreeNode(7);
+$h = new BinaryTreeNode(8);
+$i = new BinaryTreeNode(9);
 
 $a->buildTree($b, $c);
 $b->buildTree($d, $e);
 $c->buildTree($f, $g);
 $e->buildTree($h, $i);
 
-preOrderByRecursive($a);
+$a->preOrderByRecursive($a);
 echo PHP_EOL;
 
-inOrderByRecursive($a);
+$a->inOrderByRecursive($a);
 echo PHP_EOL;
 
-postOrderByRecursive($a);
+$a->postOrderByRecursive($a);
 echo PHP_EOL;

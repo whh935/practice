@@ -45,34 +45,37 @@ class BinaryTreeNode
     }
 }
 
-/**
- * 借助先序遍历的思路，得到根>右>左，再翻转一次
- * 利用栈后序遍历二叉树
- * @param $root
- * @return array
- */
-function postorderTraversal($root)
+class Solution
 {
-    if ($root == null) {
-        return [];
-    }
-
-    $result = [];
-    $stack = [];//辅助栈
-    $curr = $root;//当前节点
-    while (!empty($stack) || $curr != null) {
-        while ($curr != null) {//遍历到最后一层
-            $result[] = $curr->val;
-            array_push($stack, $curr);
-            $curr = $curr->right;
+    /**
+     * 借助先序遍历的思路，得到根>右>左，再翻转一次
+     * 利用栈后序遍历二叉树
+     * @param $root
+     * @return array
+     */
+    function postorderTraversal($root)
+    {
+        if ($root == null) {
+            return [];
         }
 
-        $node = array_pop($stack);//此时该节点的右子树已经全部遍历完
-        $curr = $node->left;//对左子树遍历
-    }
+        $result = [];
+        $stack = [];//辅助栈
+        $curr = $root;//当前节点
+        while (!empty($stack) || $curr != null) {
+            while ($curr != null) {//遍历到最后一层
+                $result[] = $curr->val;
+                array_push($stack, $curr);
+                $curr = $curr->right;
+            }
 
-    $result = array_reverse($result);
-    return $result;
+            $node = array_pop($stack);//此时该节点的右子树已经全部遍历完
+            $curr = $node->left;//对左子树遍历
+        }
+
+        $result = array_reverse($result);
+        return $result;
+    }
 }
 
 $a = new BinaryTreeNode(1);
@@ -86,5 +89,6 @@ $a->buildTree($b, $c);
 $b->buildTree($d, $e);
 $c->buildTree($f, null);
 
-$result = postorderTraversal($a);
+$solution = new Solution();
+$result = $solution->postorderTraversal($a);
 var_dump($result);

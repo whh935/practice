@@ -6,27 +6,31 @@
  *      判断数组是否是单调的
  */
 
-/**
- * @param $A
- * @return bool
- */
-function isMonotonic($A)
+class Solution
 {
-    $length = count($A);
+    /**
+     * @param $A
+     * @return bool
+     */
+    function isMonotonic($A)
+    {
+        $length = count($A);
 
-    $increasing = true;
-    $decreasing = true;
-    for ($i = 0; $i < $length - 1; $i++) {
-        if ($A[$i] > $A[$i + 1]) {
-            $increasing = false;
-        } elseif ($A[$i] < $A[$i + 1]) {
-            $decreasing = false;
+        $increasing = true;
+        $decreasing = true;
+        for ($i = 0; $i < $length - 1; $i++) {
+            if ($A[$i] > $A[$i + 1]) {
+                $increasing = false;
+            } elseif ($A[$i] < $A[$i + 1]) {
+                $decreasing = false;
+            }
         }
-    }
 
-    return $increasing || $decreasing;
+        return $increasing || $decreasing;
+    }
 }
 
+$solution = new Solution();
 //$arr = [11,11,9,4,3,3,3,1,-1,-1,3,3,3,5,5,5];
 //$arr = [1,3,2];
 //$arr = [1,2,3,4,5,5,4,3,2,1];
@@ -34,4 +38,4 @@ function isMonotonic($A)
 //$arr = [1,2,2,3];
 //$arr = [1,1,1];
 $arr = [6,5,4,4];
-var_dump(isMonotonic($arr));exit;
+var_dump($solution->isMonotonic($arr));exit;
