@@ -45,7 +45,7 @@ class Solution
      */
     function climbStairs2($n)
     {
-        if ($n <= 1) {//判断1防止数组越界
+        if ($n <= 2) {
             return $n;
         }
 

@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2020/3/8 23:19
- * Desc: 剑指offer面试题39
+ * Desc: 剑指offer面试题55-I-https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof/
  *      输入一棵二叉树的根节点，求该树的深度。
  *      从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度
  */
@@ -36,33 +36,36 @@ class BinaryTreeNode
             $this->right = $right_child;
         }
     }
-}
 
-/**
- * 递归计算二叉树深度
- * @param $root
- * @return int|mixed
- */
-function getDepth($root)
-{
-    if (is_null($root)) {
-        return 0;
+    /**
+     * 先序遍历-递归
+     * @param $root
+     */
+    function preOrderByRecursive($root)
+    {
+        if (!is_null($root)) {
+            echo $root->val . ' ';
+            $this->preOrderByRecursive($root->left);
+            $this->preOrderByRecursive($root->right);
+        }
     }
-
-    $depth = max(getDepth($root->left), getDepth($root->right)) + 1;
-    return $depth;
 }
 
-/**
- * 先序遍历-递归
- * @param $root
- */
-function preOrderByRecursive($root)
+class Solution
 {
-    if (!is_null($root)) {
-        echo $root->val . ' ';
-        preOrderByRecursive($root->left);
-        preOrderByRecursive($root->right);
+    /**
+     * 递归计算二叉树深度
+     * @param $root
+     * @return int|mixed
+     */
+    function getDepth($root)
+    {
+        if (is_null($root)) {
+            return 0;
+        }
+
+        $depth = max($this->getDepth($root->left), $this->getDepth($root->right)) + 1;
+        return $depth;
     }
 }
 
@@ -81,8 +84,8 @@ $b->buildTree($d, $e);
 $c->buildTree($f, $g);
 $e->buildTree($h, $i);
 
-preOrderByRecursive($a);
+$a->preOrderByRecursive($a);
 echo PHP_EOL;
 
-var_dump(getDepth($a));
-echo PHP_EOL;
+$solution = new Solution();
+var_dump($solution->getDepth($a));

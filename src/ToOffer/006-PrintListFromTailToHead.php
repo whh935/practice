@@ -2,8 +2,8 @@
 /**
  * User: whh935
  * Date: 2019/7/6 01:03
- * Desc: 剑指offer面试题5
- *      逆序打印一个链表
+ * Desc: 剑指offer面试题06-https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
+ *      从尾到头打印链表：输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
  */
 
 class ListNode

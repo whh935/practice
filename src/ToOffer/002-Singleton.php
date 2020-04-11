@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2019/7/6 01:03
- * Desc: 剑指offer面试题2
+ * Desc: 剑指offer面试题02
  *      单例类：三私一共：私有静态变量，私有构造方法，私有克隆方法，公有获取实例方法
  */
 
@@ -31,4 +31,3 @@ class Singleton
 $obj1 = Singleton::getInstance();
 $obj2 = Singleton::getInstance();
 var_dump($obj1 === $obj2);
-exit;

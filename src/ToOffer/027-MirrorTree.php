@@ -1,9 +1,9 @@
 <?php
 /**
  * User: whh935
- * Date: 2020/3/8 23:19
- * Desc: 剑指offer面试题23
- *      从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
+ * Date: 2020/3/9 23:04
+ * Desc: 剑指offer面试题27-https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
+ *      请完成一个函数，输入一个二叉树，该函数输出它的镜像。
  */
 
 class BinaryTreeNode
@@ -35,43 +35,41 @@ class BinaryTreeNode
             $this->right = $right_child;
         }
     }
-}
 
-/**
- * 利用队列层次遍历二叉树
- * @param $root
- */
-function levelOrder($root)
-{
-    if (is_null($root)) {
-        return ;
-    }
-
-    $queue = array();
-    array_push($queue, $root);
-    while (!empty($queue)) {
-        $node = array_shift($queue);
-        echo $node->val . ' ';
-
-        if (!is_null($node->left)) {
-            array_push($queue, $node->left);
-        }
-        if (!is_null($node->right)) {
-            array_push($queue, $node->right);
+    /**
+     * 先序遍历-递归
+     * @param $root
+     */
+    function preOrderByRecursive($root)
+    {
+        if (!is_null($root)) {
+            echo $root->val . ' ';
+            $this->preOrderByRecursive($root->left);
+            $this->preOrderByRecursive($root->right);
         }
     }
 }
 
-/**
- * 先序遍历-递归
- * @param $root
- */
-function preOrderByRecursive($root)
+class Solution
 {
-    if (!is_null($root)) {
-        echo $root->val . ' ';
-        preOrderByRecursive($root->left);
-        preOrderByRecursive($root->right);
+    /**
+     * @param $root
+     * @return null|BinaryTreeNode
+     */
+    function mirrorTree($root)
+    {
+        if (is_null($root)) {
+            return null;
+        }
+
+        $tmp = $root->right;
+        $root->right = $root->left;
+        $root->left = $tmp;
+
+        $this->mirrorTree($root->left);
+        $this->mirrorTree($root->right);
+
+        return $root;
     }
 }
 
@@ -90,8 +88,10 @@ $b->buildTree($d, $e);
 $c->buildTree($f, $g);
 $e->buildTree($h, $i);
 
-preOrderByRecursive($a);
+$a->preOrderByRecursive($a);
 echo PHP_EOL;
 
-levelOrder($a);
+$solution = new Solution();
+$a_mirror = $solution->mirrorTree($a);
+$a_mirror->preOrderByRecursive($a_mirror);
 echo PHP_EOL;
