@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2020/3/25 17:59
- * Desc: LeetCode第146题-https://leetcode-cn.com/problems/lru-cache/
+ * Desc: LRU缓存机制-https://leetcode-cn.com/problems/lru-cache/
  *      运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。
  *      它应该支持以下操作： 获取数据 get 和 写入数据 put 。
  *      获取数据 get(key) - 如果密钥 (key) 存在于缓存中，则获取密钥的值（总是正数），否则返回 -1。
@@ -25,8 +25,8 @@ class LRUCache
     }
 
     /**
-     * @param Integer $key
-     * @return Integer
+     * @param $key
+     * @return int|mixed
      */
     function get($key)
     {
@@ -42,9 +42,8 @@ class LRUCache
     }
 
     /**
-     * @param Integer $key
-     * @param Integer $value
-     * @return NULL
+     * @param $key
+     * @param $value
      */
     function put($key, $value)
     {

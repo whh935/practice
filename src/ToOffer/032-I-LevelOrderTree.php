@@ -55,6 +55,7 @@ class Solution
     /**
      * 利用队列层次遍历二叉树
      * @param $root
+     * @return array
      */
     function levelOrder($root)
     {

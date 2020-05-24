@@ -2,8 +2,14 @@
 /**
  * User: whh935
  * Date: 2019/6/19 17:10
- * Desc: LeetCode第896题-https://leetcode-cn.com/problems/monotonic-array/
- *      判断数组是否是单调的
+ * Desc: 单调数列-https://leetcode-cn.com/problems/monotonic-array/
+ *      如果数组是单调递增或单调递减的，那么它是单调的。
+ *      如果对于所有 i <= j，A[i] <= A[j]，那么数组 A 是单调递增的。
+ *      如果对于所有 i <= j，A[i] >= A[j]，那么数组 A 是单调递减的。
+ *      当给定的数组 A 是单调数组时返回 true，否则返回 false。
+ *      示例 1：
+ *          输入：[1,2,2,3]
+ *          输出：true
  */
 
 class Solution

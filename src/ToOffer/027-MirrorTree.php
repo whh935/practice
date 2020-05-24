@@ -58,16 +58,15 @@ class Solution
      */
     function mirrorTree($root)
     {
-        if (is_null($root)) {
+        if ($root == null) {
             return null;
         }
 
-        $tmp = $root->right;
-        $root->right = $root->left;
-        $root->left = $tmp;
+        $right = $this->mirrorTree($root->left);
+        $left = $this->mirrorTree($root->right);
 
-        $this->mirrorTree($root->left);
-        $this->mirrorTree($root->right);
+        $root->right = $right;
+        $root->left = $left;
 
         return $root;
     }

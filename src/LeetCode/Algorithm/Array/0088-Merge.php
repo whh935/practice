@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2020/4/4 17:19
- * Desc: LeetCode第88题-https://leetcode-cn.com/problems/merge-sorted-array/
+ * Desc: 合并两个有序数组-https://leetcode-cn.com/problems/merge-sorted-array/
  *      给你两个有序整数数组 nums1 和 nums2，
  *      请你将 nums2 合并到 nums1 中，使 num1 成为一个有序数组。
  *      说明:

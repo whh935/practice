@@ -33,6 +33,7 @@ class Solution
         if ($exponent < 0) {
             $result = 1.0 / $result;
         }
+        $result = round($result, 5);
 
         return $result;
     }

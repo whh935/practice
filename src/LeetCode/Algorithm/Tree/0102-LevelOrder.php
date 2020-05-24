@@ -2,9 +2,10 @@
 /**
  * User: whh935
  * Date: 2020/3/29 15:04
- * Desc: LeetCode第102题-https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+ * Desc: 二叉树的层序遍历-https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
  *      给定一个二叉树，返回其按层次遍历的节点值。 （即逐层地，从左到右访问所有节点）。
- *      给定二叉树: [3,9,20,null,null,15,7],
+ *      示例：
+ *      二叉树: [3,9,20,null,null,15,7],
  *          3
  *         / \
  *        9  20
@@ -87,17 +88,14 @@ class Solution
     }
 }
 
-$a = new BinaryTreeNode(1);
-$b = new BinaryTreeNode(2);
-$c = new BinaryTreeNode(3);
-$d = new BinaryTreeNode(4);
-$e = new BinaryTreeNode(5);
-$f = new BinaryTreeNode(6);
+$a = new BinaryTreeNode(3);
+$b = new BinaryTreeNode(9);
+$c = new BinaryTreeNode(20);
+$d = new BinaryTreeNode(15);
+$e = new BinaryTreeNode(7);
 
 $a->buildTree($b, $c);
-$b->buildTree($d, $e);
-$c->buildTree($f, null);
+$c->buildTree($d, $e);
 
 $solution = new Solution();
 print_r(json_encode($solution->levelOrder($a)));
-echo PHP_EOL;

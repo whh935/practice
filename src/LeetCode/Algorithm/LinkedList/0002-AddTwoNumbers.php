@@ -2,8 +2,7 @@
 /**
  * User: whh935
  * Date: 2020/3/13 10:26
- * Desc: LeetCode第2题-https://leetcode-cn.com/problems/add-two-numbers/
- *      两数相加
+ * Desc: 两数相加-https://leetcode-cn.com/problems/add-two-numbers/
  *      给出两个 非空 的链表用来表示两个非负的整数。
  *      其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
  *      输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
@@ -13,16 +12,44 @@
 
 class ListNode
 {
-    public $value = '';
+    public $val = '';
     public $next  = null;
 
     /**
      * ListNode constructor.
+     * @param $val
+     */
+    public function __construct($val)
+    {
+        $this->val = $val;
+    }
+
+    /**
+     * @param $head
      * @param $value
      */
-    public function __construct($value)
+    function addNode($head, $value)
     {
-        $this->value = $value;
+        $p = $head;
+        while (!is_null($p->next)) {
+            $p = $p->next;
+        }
+
+        $new     = new ListNode($value);
+        $p->next = $new;
+    }
+
+    /**
+     * @param $head
+     */
+    function showNode($head)
+    {
+        $p = $head;
+        while (!is_null($p)) {
+            echo $p->val . '->';
+            $p = $p->next;
+        }
+        echo 'NULL' . PHP_EOL;
     }
 }
 
@@ -47,12 +74,12 @@ class Solution
     /**
      * @param $l1
      * @param $l2
-     * @return null
+     * @return ListNode
      */
     function addTwoNumbers($l1, $l2)
     {
-        $dump_head = new ListNode(0);
-        $curr = $dump_head;
+        $dummy_head = new ListNode(0);
+        $curr = $dummy_head;
         $carry = $sum = 0;
         while ($l1 != null || $l2 != null) {
             $x = ($l1 != null) ? $l1->val : 0;
@@ -68,6 +95,20 @@ class Solution
             $curr->next = new ListNode($carry);
         }
 
-        return $dump_head->next;
+        return $dummy_head->next;
     }
 }
+
+$l1 = new ListNode(null);
+$l1->addNode($l1, 2);
+$l1->addNode($l1, 4);
+$l1->addNode($l1, 3);
+
+$l2 = new ListNode(null);
+$l2->addNode($l2, 5);
+$l2->addNode($l2, 6);
+$l2->addNode($l2, 4);
+
+$solution = new Solution();
+$add = $solution->addTwoNumbers($l1->next, $l2->next);
+$add->showNode($add);

@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2020/4/5 12:17
- * Desc: LeetCode第62题-https://leetcode-cn.com/problems/unique-paths/
+ * Desc: 不同路径-https://leetcode-cn.com/problems/unique-paths/
  *      一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
  *      机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
  *      问总共有多少条不同的路径？
@@ -47,4 +47,3 @@ $solution = new Solution();
 $m = 7;
 $n = 3;
 var_dump($solution->uniquePaths($m, $n));
-

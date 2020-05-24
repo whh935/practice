@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2020/4/5 22:43
- * Desc: LeetCode第101题-https://leetcode-cn.com/problems/symmetric-tree/
+ * Desc: 对称二叉树-https://leetcode-cn.com/problems/symmetric-tree/
  *      给定一个二叉树，检查它是否是镜像对称的。
  *      例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
  *               1

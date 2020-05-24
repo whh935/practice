@@ -17,11 +17,22 @@ function getPostBody()
         return [];
     }
 
-    if ($_SERVER['HTTP_CONTENT_TYPE'] == 'application/x-www-form-urlencoded') {
+    if (in_array($_SERVER['HTTP_CONTENT_TYPE'],
+        ['application/x-www-form-urlencoded', 'multipart/form-data'])
+    ) {
         return $_POST;
-    } elseif ($_SERVER['HTTP_CONTENT_TYPE'] == 'application/form-data') {
-        return $GLOBALS['HTTP_RAW_POST_DATA'];
     } else {
-        return [];
+        $params_str = file_get_contents('php://input');
+        $params_arr = explode('&', $params_str);
+        $result = [];
+        foreach ($params_arr as $params) {
+            list($params_key, $params_value) = explode('=', $params);
+            $result[$params_key] = $params_value;
+        }
+
+        return $result;
     }
 }
+
+var_dump(getPostBody());
+

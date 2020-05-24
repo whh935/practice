@@ -2,7 +2,7 @@
 /**
  * User: whh935
  * Date: 2020/4/6 11:06
- * Desc: LeetCode第189题-https://leetcode-cn.com/problems/rotate-array/
+ * Desc: 旋转数组-https://leetcode-cn.com/problems/rotate-array/
  *      给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
  *      输入: [1,2,3,4,5,6,7] 和 k = 3
  *      输出: [5,6,7,1,2,3,4]
@@ -15,7 +15,8 @@
 class Solution
 {
     /**
-     * 暴力破解：从尾到前循环k次，时间复杂度O(nk)，空间复杂度O(1)
+     * 暴力破解：从尾到前循环k次
+     * 时间复杂度O(nk)，空间复杂度O(1)
      * 数据量大时会超出时间限制
      * https://leetcode-cn.com/submissions/detail/60276936/testcase/
      * @param $nums
@@ -39,9 +40,11 @@ class Solution
     }
 
     /**
-     * 反转法：当我们旋转数组 k 次， k % n 个尾部元素会被移动到头部，剩下的元素会被向后移动。
-     * 在这个方法中，我们首先将所有元素反转。然后反转前 k 个元素，再反转后面 n-k 个元素，
-     * 就能得到想要的结果。
+     * 反转法：
+     *  当我们旋转数组 k 次， k % n 个尾部元素会被移动到头部，剩下的元素会被向后移动。
+     *  在这个方法中，我们首先将所有元素反转。然后反转前 k 个元素，再反转后面 n-k 个元素，
+     *  就能得到想要的结果。
+     * 时间复杂度O(n)，空间复杂度O(1)
      * @param $nums
      * @param $k
      */

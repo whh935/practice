@@ -2,8 +2,7 @@
 /**
  * User: whh935
  * Date: 2020/4/12 16:48
- * Desc: LeetCode第160题-https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
- *      相交链表
+ * Desc: 相交链表-https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
  *      编写一个程序，找到两个单链表相交的起始节点。
  *         4->1->
  *               8->4->5
